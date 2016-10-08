@@ -11,7 +11,7 @@ const redent = require('redent');
 const readPkgUp = require('read-pkg-up');
 const loudRejection = require('loud-rejection');
 const normalizePackageData = require('normalize-package-data');
-const nconf = require('nconf');
+const nconf = require('@nwaltham/nconf');
 const mkdirp = require('mkdirp');
 
 // prevent caching of this module so module.parent is always accurate
@@ -71,8 +71,7 @@ module.exports = (opts, minimistOpts) => {
 	// TODO: add alias conversion
     // TODO: apply defaults
 	// TODO: name nconf.argv testable...
-
-	const argv = nconf.argv()
+	const argv = nconf.argv({argv: opts.argv})
 		.env()
 		.file({
 			file: settingsfile
