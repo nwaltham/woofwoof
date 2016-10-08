@@ -1,13 +1,12 @@
-# meow [![Build Status](https://travis-ci.org/sindresorhus/meow.svg?branch=master)](https://travis-ci.org/sindresorhus/meow)
+# woofwoof [![Build Status](https://travis-ci.org/nwaltham/woofwoof.svg?branch=master)](https://travis-ci.org/nwaltham/woofwoof)
 
-> CLI app helper
+> CLI app helper forked from the popular [meow](https://github.org/sindresorhus/meow) using nconf instead of mimimist
 
-![](meow.gif)
 
 
 ## Features
 
-- Parses arguments using [minimist](https://github.com/substack/minimist)
+- Parses arguments, reads settings from config file and evironment using [nconf](https://github.com/indexzero/nconf)
 - Converts flags to [camelCase](https://github.com/sindresorhus/camelcase)
 - Outputs version when `--version`
 - Outputs description and supplied help text when `--help`
@@ -18,7 +17,7 @@
 ## Install
 
 ```
-$ npm install --save meow
+$ npm install --save woofwoof
 ```
 
 
@@ -31,10 +30,10 @@ $ ./foo-app.js unicorns --rainbow
 ```js
 #!/usr/bin/env node
 'use strict';
-const meow = require('meow');
+const woofwoof = require('woofwoof');
 const foo = require('.');
 
-const cli = meow(`
+const cli = woofwoof(`
 	Usage
 	  $ foo <input>
 
@@ -63,7 +62,7 @@ foo(cli.input[0], cli.flags);
 
 ## API
 
-### meow(options, [minimistOptions])
+### woofwoof(options, [minimistOptions])
 
 Returns an `Object` with:
 
@@ -146,7 +145,7 @@ Keys passed to the minimist `default` option are [decamelized](https://github.co
 
 ## Promises
 
-Meow will make unhandled rejected promises [fail loudly](https://github.com/sindresorhus/loud-rejection) instead of the default silent fail. Meaning you don't have to manually `.catch()` promises used in your CLI.
+woofwoof will make unhandled rejected promises [fail loudly](https://github.com/sindresorhus/loud-rejection) instead of the default silent fail. Meaning you don't have to manually `.catch()` promises used in your CLI.
 
 
 ## Tips

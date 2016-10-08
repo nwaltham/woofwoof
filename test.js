@@ -15,16 +15,16 @@ test('return object', t => {
 		`
 	}, {
 		'alias': {u: 'unicorn'},
-		'default': {meow: 'dog'},
+		'default': {woofwoof: 'dog'},
 		'--': true
 	});
 
 	t.is(cli.input[0], 'foo');
 	t.true(cli.flags.fooBar);
-	t.is(cli.flags.meow, 'dog');
+	t.is(cli.flags.woofwoof, 'dog');
 	t.is(cli.flags.unicorn, 'cat');
 	t.deepEqual(cli.flags['--'], ['unicorn', 'cake']);
-	t.is(cli.pkg.name, 'meow');
+	t.is(cli.pkg.name, 'woofwoof');
 	t.is(cli.help, indentString('\nCLI app helper\n\nUsage\n  foo <input>\n', 2));
 });
 
@@ -48,7 +48,7 @@ test('spawn cli and show help screen', async t => {
 
 test('spawn cli and test input', async t => {
 	const {stdout} = await execa('./fixture.js', ['-u', 'cat']);
-	t.is(stdout, 'u\nunicorn\nmeow\ncamelCaseOption');
+	t.is(stdout, 'u\nunicorn\nwoofwoof\ncamelCaseOption');
 });
 
 test('spawn cli and test input flag', async t => {

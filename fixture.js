@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 'use strict';
-const meow = require('.');
+const woofwoof = require('.');
 
-const cli = meow({
+const cli = woofwoof({
 	description: 'Custom description',
 	help: `
 		Usage
@@ -13,7 +13,7 @@ const cli = meow({
 		u: 'unicorn'
 	},
 	default: {
-		meow: 'dog',
+		woofwoof: 'dog',
 		camelCaseOption: 'foo'
 	}
 });

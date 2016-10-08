@@ -1,13 +1,13 @@
 {
-  "name": "meow",
+  "name": "woofwoof",
   "version": "3.6.0",
   "description": "CLI app helper",
   "license": "MIT",
-  "repository": "sindresorhus/meow",
+  "repository": "nwaltham/woofwoof",
   "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com"
+    "name": "Sindre Sorhus, Nicholas Waltham",
+    "email": "sindresorhus@gmail.com, nw221@log1.net",
+    "url": "sindresorhus.com, infohit.net"
   },
   "engines": {
     "node": ">=4"
@@ -27,9 +27,9 @@
     "argv",
     "command",
     "line",
-    "meow",
-    "cat",
-    "kitten",
+    "woofwoof",
+    "dog",
+    "puppy",
     "parser",
     "option",
     "flags",
