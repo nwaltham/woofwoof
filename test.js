@@ -25,7 +25,7 @@ test('return object', t => {
 	t.is(cli.flags.unicorn, 'cat');
 	t.deepEqual(cli.flags['--'], ['unicorn', 'cake']);
 	t.is(cli.pkg.name, 'woofwoof');
-	t.is(cli.help, indentString('\nCLI app helper\n\nUsage\n  foo <input>\n', 2));
+	t.is(cli.help, indentString('\n  CLI app helper forked from meow\n\n  unicorn\n  cat\n', 2));
 });
 
 test('support help shortcut', t => {
@@ -33,7 +33,7 @@ test('support help shortcut', t => {
 		unicorn
 		cat
 	`);
-	t.is(cli.help, indentString('\nCLI app helper\n\nunicorn\ncat\n', 2));
+	t.is(cli.help, indentString('\n  CLI app helper forked from meow\n\n  unicorn\n  cat\n', 2));
 });
 
 test('spawn cli and show version', async t => {
