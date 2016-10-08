@@ -4,6 +4,7 @@
 const woofwoof = require('.');
 
 const cli = woofwoof({
+	env: ['nothing'],
 	description: 'Custom description',
 	help: `
 		Usage
@@ -20,6 +21,7 @@ const cli = woofwoof({
 });
 
 if (cli.flags.camelCaseOption === 'foo') {
+	
 	Object.keys(cli.flags).forEach(x => {
 		console.log(x);
 	});

@@ -71,7 +71,7 @@ module.exports = (opts, minimistOpts) => {
 	// TODO: add alias conversion
 
 	const argv = nconf.argv({argv: opts.argv})
-		.env()
+		.env(opts.env)
 		.file({
 			file: settingsfile
 		}).defaults(minimistOpts.default);

@@ -8,6 +8,7 @@ global.Promise = Promise;
 
 test('return object', t => {
 	const cli = m({
+		env: ['nothing'],
 		argv: ['foo', '--foo-bar', '-u', 'cat', '--', 'unicorn', 'cake'],
 		help: `
 			Usage
@@ -33,7 +34,7 @@ test('support help shortcut', t => {
 		unicorn
 		cat
 	`);
-	t.is(cli.help, indentString('\n  CLI app helper forked from meow\n\n  unicorn\n  cat\n', 2));
+	t.is(cli.help, indentString('\nCLI app helper forked from meow\n\nunicorn\ncat\n', 2));
 });
 
 test('spawn cli and show version', async t => {
@@ -68,22 +69,22 @@ test.serial('pkg.bin as a string should work', t => {
 });
 
 test('single character flag casing should be preserved', t => {
-	t.deepEqual(m({argv: ['-F']}).flags, {F: true});
+	t.deepEqual(m({env: [''], argv: ['-F']}).flags, {F: true});
 });
 
 test('type inference', t => {
-	t.is(m({argv: ['5']}).input[0], '5');
-	t.is(m({argv: ['5']}, {string: ['_']}).input[0], '5');
-	t.is(m({
+	t.is(m({env: [''], argv: ['5']}).input[0], '5');
+	t.is(m({env: [''], argv: ['5']}, {string: ['_']}).input[0], '5');
+	t.is(m({env: [''],
 		argv: ['5'],
 		inferType: true
 	}).input[0], 5);
-	t.is(m({
+	t.is(m({env: [''],
 		argv: ['5'],
 		inferType: true
-	}, {string: ['foo']}).input[0], 5);
-	t.is(m({
+	}, {env: [''], string: ['foo']}).input[0], 5);
+	t.is(m({env: [''],
 		argv: ['5'],
 		inferType: true
-	}, {string: ['_', 'foo']}).input[0], 5);
+	}, {env: [''], string: ['_', 'foo']}).input[0], 5);
 });
