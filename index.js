@@ -12,7 +12,7 @@ const readPkgUp = require('read-pkg-up');
 const loudRejection = require('loud-rejection');
 const normalizePackageData = require('normalize-package-data');
 const nconf = require('nconf');
-const mkdirp = Promise.promisifyAll(require('mkdirp'));
+const mkdirp = require('mkdirp');
 
 // prevent caching of this module so module.parent is always accurate
 delete require.cache[__filename];
