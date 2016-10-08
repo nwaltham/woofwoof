@@ -69,13 +69,12 @@ module.exports = (opts, minimistOpts) => {
 	mkdirp.sync(configpath);
 
 	// TODO: add alias conversion
-    // TODO: apply defaults
-	// TODO: name nconf.argv testable...
+
 	const argv = nconf.argv({argv: opts.argv})
 		.env()
 		.file({
 			file: settingsfile
-		});
+		}).defaults(minimistOpts.default);
 
 	// instrumentation
 	// console.log(JSON.stringify(nconf, null, 4));
