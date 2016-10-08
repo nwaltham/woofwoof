@@ -163,4 +163,6 @@ See [`update-notifier`](https://github.com/yeoman/update-notifier) if you want u
 
 ## License
 
-MIT © [Sindre Sorhus](https://sindresorhus.com), [Nicholas Waltham](https://www.infohit.net)
+MIT © [Sindre Sorhus](https://sindresorhus.com)
+ 
+portions MIT © [Nicholas Waltham](https://www.infohit.net)
