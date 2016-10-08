@@ -69,6 +69,8 @@ module.exports = (opts, minimistOpts) => {
 	mkdirp.sync(configpath);
 
 	// TODO: add alias conversion
+    // TODO: apply defaults
+	// TODO: name nconf.argv testable...
 
 	const argv = nconf.argv()
 		.env()

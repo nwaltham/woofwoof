@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 'use strict';
+
 const woofwoof = require('.');
 
 const cli = woofwoof({
