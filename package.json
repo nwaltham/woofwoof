@@ -1,13 +1,13 @@
 {
   "name": "woofwoof",
-  "version": "3.6.0",
-  "description": "CLI app helper",
+  "version": "3.6.1",
+  "description": "CLI app helper forked from meow",
   "license": "MIT",
   "repository": "nwaltham/woofwoof",
   "author": {
     "name": "Sindre Sorhus, Nicholas Waltham",
     "email": "sindresorhus@gmail.com, nw221@log1.net",
-    "url": "sindresorhus.com, infohit.net"
+    "url": "sindresorhus.com, www.infohit.net"
   },
   "engines": {
     "node": ">=4"
