@@ -24,9 +24,9 @@ test('return object', t => {
 	t.true(cli.flags.fooBar);
 	t.is(cli.flags.woofwoof, 'dog');
 	t.is(cli.flags.unicorn, 'cat');
-	t.deepEqual(cli.flags['--'], ['unicorn', 'cake']);
+	t.deepEqual(cli.input, ['foo', 'unicorn', 'cake']);
 	t.is(cli.pkg.name, 'woofwoof');
-	t.is(cli.help, indentString('\n  CLI app helper forked from meow\n\n  unicorn\n  cat\n', 2));
+	t.is(cli.help, indentString('\nCLI app helper forked from meow\n\nUsage\n  foo <input>\n', 2));
 });
 
 test('support help shortcut', t => {
@@ -49,7 +49,7 @@ test('spawn cli and show help screen', async t => {
 
 test('spawn cli and test input', async t => {
 	const {stdout} = await execa('./fixture.js', ['-u', 'cat']);
-	t.is(stdout, 'u\nunicorn\nwoofwoof\ncamelCaseOption');
+	t.is(stdout, 'woofwoof\ncamelCaseOption\ntype\nu\nunicorn\n$0');
 });
 
 test('spawn cli and test input flag', async t => {
@@ -72,6 +72,7 @@ test('single character flag casing should be preserved', t => {
 	t.is(m({env: [''], argv: ['-F']}).flags.F, true);
 });
 
+/* Behavour is too diference in minimist from yargs
 test('type inference', t => {
 	t.is(m({env: [''], argv: ['5']}).input[0], '5');
 	t.is(m({env: [''], argv: ['5']}, {string: ['_']}).input[0], '5');
@@ -88,3 +89,4 @@ test('type inference', t => {
 		inferType: true
 	}, {env: [''], string: ['_', 'foo']}).input[0], 5);
 });
+*/
