@@ -68,9 +68,21 @@ module.exports = (opts, minimistOpts) => {
 	const settingsfile = path.join(configpath, 'settings.json');
 	mkdirp.sync(configpath);
 
-	// TODO: add alias conversion
+	const nconfArgv = {};
+	if (opts.argv) {
+		nconfArgv.argv = opts.argv;
+	}
+	if (minimistOpts.alias) {
+		Object.keys(minimistOpts.alias).forEach(x => {
+			if (nconfArgv[x]) {
+				nconfArgv[x].alias = minimistOpts.alias[x];
+			} else {
+				nconfArgv[x] = {alias: minimistOpts.alias[x]};
+			}
+		});
+	}
 
-	const argv = nconf.argv({argv: opts.argv})
+	const argv = nconf.argv(nconfArgv)
 		.env(opts.env)
 		.file({
 			file: settingsfile
