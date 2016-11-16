@@ -51,7 +51,7 @@ module.exports = (opts, minimistOpts) => {
 	}
 
 	const pkg = opts.pkg;
-	/* instrumentation*/
+	/* instrumentation */
 	/*
     console.log('"opts"');
     console.log(JSON.stringify(opts, null, 4));
@@ -62,7 +62,7 @@ module.exports = (opts, minimistOpts) => {
 
 	const settingsdir = '.' + opts.pkg.name;
 
-	/* instrumentation*/
+	/* instrumentation */
 	// console.log(os.homedir());
 	const configpath = path.join(os.homedir(), settingsdir);
 	const settingsfile = path.join(configpath, 'settings.json');
@@ -106,6 +106,7 @@ module.exports = (opts, minimistOpts) => {
 
 	const showHelp = code => {
 		console.log(help);
+		// eslint-disable-next-line unicorn/no-process-exit
 		process.exit(typeof code === 'number' ? code : 2);
 	};
 
@@ -126,12 +127,13 @@ module.exports = (opts, minimistOpts) => {
 			nconf.set(k, nconf.get(k));
 		}
 		nconf.save(settingsfile);
-
+		// eslint-disable-next-line unicorn/no-process-exit
 		process.exit(typeof code === 'number' ? code : 2);
 	};
 
 	if (argv.get('version') && opts.version !== false) {
 		console.log(typeof opts.version === 'string' ? opts.version : pkg.version);
+		// eslint-disable-next-line unicorn/no-process-exit
 		process.exit();
 	}
 
